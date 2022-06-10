@@ -6,7 +6,7 @@ import (
 )
 
 func TestWalkDir(t *testing.T) {
-	dirPath := "../"
+	dirPath := "../fs"
 	//dirPath := "D:\\MyProjects\\golib"
 	allFiles, _ := WalkDir(dirPath)
 	for _, file := range allFiles {
