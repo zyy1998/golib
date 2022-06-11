@@ -21,6 +21,7 @@ func TestCreateSymbolicLink(t *testing.T) {
 		wantErr     error
 	}{
 		{name: "创建文件符号链接", args: args{from: "D:\\MyProjects\\golib\\fs\\link_test.go", to: "../temp"}, wantSuccess: true, wantErr: nil},
+		{name: "相对路径创建文件符号链接", args: args{from: "./link.go", to: "../temp"}, wantSuccess: true, wantErr: nil},
 		{name: "创建文件夹符号链接", args: args{from: "D:\\MyProjects\\golib\\fs", to: "../temp"}, wantSuccess: true, wantErr: nil},
 		{name: "重复创建文件符号链接", args: args{from: "D:\\MyProjects\\golib\\fs\\link_test.go", to: "../temp"}, wantSuccess: false, wantErr: errors.New("文件已存在")},
 	}

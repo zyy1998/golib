@@ -24,6 +24,9 @@ func CreateSymbolicLink(from string, to string) (success bool, err error) {
 		err = fmt.Errorf("%v dose not exist", to)
 		return
 	}
+	// 经测试，给文件夹创建符号链接时必须使用绝对路径，所以干脆在这里都使用绝对路径
+	from, _ = filepath.Abs(from)
+	to, _ = filepath.Abs(to)
 	baseName := filepath.Base(from)
 	to = path.Join(to, baseName)
 	err = os.Symlink(from, to)
